@@ -1,26 +1,48 @@
-import React from 'react';
+import React, { ChangeEvent, ChangeEventHandler, KeyboardEvent, useState } from 'react';
+import Test from './pages/Test';
+import Calculator from './pages/Test/components/Calculator';
 import logo from './logo.svg';
 import './App.css';
+import Button from './Button';
+import Title from './Title';
+import Text from './Text';
+import Adult from './Adult';
+import Photo from './Photo';
+import Counter from './Counter';
+import Adder from './Adder';
+import WelcomeName from './WelcomeName';
+import ConditionalText from './ConditionalText';
+import HiddenName from './HiddenName';
 
-function App() {
+const App = () => {
+  const [latestName, setLatestName] = useState('');
+  const updateLastestName = (name: string) => {
+    setLatestName(name);
+    console.log(name);
+  };
+
+  const preventKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    console.log(event.key);
+    if (event.key === 'h') {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Test />
+    </>
   );
-}
-
+};
+/*
+<HiddenName />
+      <ConditionalText />
+      <WelcomeName />
+      <Adder />
+      <Counter defaultCount={1} />
+      <Button name="hello" callback={updateLastestName} />
+      <Button name="world" callback={updateLastestName} />
+      <Button name="NEXTOP" callback={updateLastestName} />
+      <input type="text" onKeyDown={preventKeyDown} />
+*/
 export default App;
