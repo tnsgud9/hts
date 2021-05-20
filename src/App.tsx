@@ -1,5 +1,6 @@
 import React, { ChangeEvent, ChangeEventHandler, KeyboardEvent, useState } from 'react';
 import Test from './pages/Test';
+import Trade from './pages/Trade';
 import Calculator from './pages/Test/components/Calculator';
 import logo from './logo.svg';
 import './App.css';
@@ -30,7 +31,7 @@ const App = () => {
   };
   return (
     <>
-      <Test />
+      <Trade />
     </>
   );
 };
