@@ -20,7 +20,7 @@ const Trade = () => {
               호가
             </Grid>
             <Grid item xs={12} lg={6} style={{ backgroundColor: '#fffa5c' }}>
-              거래 <Order />
+              <Order />
             </Grid>
           </Grid>
         </Grid>
