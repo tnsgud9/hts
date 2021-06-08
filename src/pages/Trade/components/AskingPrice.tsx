@@ -39,6 +39,7 @@ const options = {
   responsive: true,
   plugins: {
     legend: {
+      dispay: false,
       position: 'right',
     },
   },
@@ -66,10 +67,10 @@ const increaseAskingPrices: RowType[] = [
     price: 1000,
     percent: 50,
     dataSet: {
-      labels: ['label1'],
+      labels: [''],
       datasets: [
         {
-          data: [50],
+          data: [-10],
           backgroundColor: ['rgba(255, 99, 132, 0.2)'],
           borderColor: ['rgba(255,99,132,1)'],
           borderWidth: 1,
@@ -81,10 +82,10 @@ const increaseAskingPrices: RowType[] = [
     price: 1000,
     percent: 50,
     dataSet: {
-      labels: ['label1'],
+      labels: [''],
       datasets: [
         {
-          data: [50],
+          data: [-30],
           backgroundColor: ['rgba(255, 99, 132, 0.2)'],
           borderColor: ['rgba(255,99,132,1)'],
           borderWidth: 1,
@@ -96,10 +97,10 @@ const increaseAskingPrices: RowType[] = [
     price: 1000,
     percent: 50,
     dataSet: {
-      labels: ['label1'],
+      labels: [''],
       datasets: [
         {
-          data: [50],
+          data: [-50],
           backgroundColor: ['rgba(255, 99, 132, 0.2)'],
           borderColor: ['rgba(255,99,132,1)'],
           borderWidth: 1,
@@ -111,10 +112,10 @@ const increaseAskingPrices: RowType[] = [
     price: 1000,
     percent: 50,
     dataSet: {
-      labels: ['label1'],
+      labels: [''],
       datasets: [
         {
-          data: [50],
+          data: [-60],
           backgroundColor: ['rgba(255, 99, 132, 0.2)'],
           borderColor: ['rgba(255,99,132,1)'],
           borderWidth: 1,
@@ -143,8 +144,8 @@ const increaseOption = {
         display: false,
         drawBorder: false,
       },
-      min: 0,
-      max: 30,
+      min: -60,
+      max: 0,
       ticks: { display: false, stepsize: 5 },
     },
     y: {
@@ -161,7 +162,37 @@ const decreaseAskingPrices: RowType[] = [
     price: 1000,
     percent: 50,
     dataSet: {
-      labels: ['label1'],
+      labels: [''],
+      datasets: [
+        {
+          data: [10],
+          backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+          borderColor: ['rgba(255,99,132,1)'],
+          borderWidth: 1,
+        },
+      ],
+    },
+  },
+  {
+    price: 1000,
+    percent: 50,
+    dataSet: {
+      labels: [''],
+      datasets: [
+        {
+          data: [30],
+          backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+          borderColor: ['rgba(255,99,132,1)'],
+          borderWidth: 1,
+        },
+      ],
+    },
+  },
+  {
+    price: 1000,
+    percent: 50,
+    dataSet: {
+      labels: [''],
       datasets: [
         {
           data: [50],
@@ -176,40 +207,10 @@ const decreaseAskingPrices: RowType[] = [
     price: 1000,
     percent: 50,
     dataSet: {
-      labels: ['label1'],
+      labels: [''],
       datasets: [
         {
-          data: [50],
-          backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-          borderColor: ['rgba(255,99,132,1)'],
-          borderWidth: 1,
-        },
-      ],
-    },
-  },
-  {
-    price: 1000,
-    percent: 50,
-    dataSet: {
-      labels: ['label1'],
-      datasets: [
-        {
-          data: [50],
-          backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-          borderColor: ['rgba(255,99,132,1)'],
-          borderWidth: 1,
-        },
-      ],
-    },
-  },
-  {
-    price: 1000,
-    percent: 50,
-    dataSet: {
-      labels: ['label1'],
-      datasets: [
-        {
-          data: [50],
+          data: [60],
           backgroundColor: ['rgba(255, 99, 132, 0.2)'],
           borderColor: ['rgba(255,99,132,1)'],
           borderWidth: 1,
@@ -239,7 +240,7 @@ const decreaseOption = {
         drawBorder: false,
       },
       min: 0,
-      max: 30,
+      max: 60,
       ticks: { display: false, stepsize: 5 },
     },
     y: {
@@ -262,8 +263,8 @@ const AskingPrice = () => {
             {increaseAskingPrices.map((row) => {
               return (
                 <TableRow key={row.price}>
-                  <TableCell>
-                    <Box width="50px" height="20px">
+                  <TableCell width="90">
+                    <Box width="90px" height="30px">
                       <Bar type="" data={row.dataSet} options={increaseOption} />
                     </Box>
                   </TableCell>
@@ -279,8 +280,8 @@ const AskingPrice = () => {
                   <TableCell></TableCell>
                   <TableCell>{row.price}</TableCell>
                   <TableCell>{row.percent}%</TableCell>
-                  <TableCell>
-                    <Box width="50px" height="20px">
+                  <TableCell width="90">
+                    <Box width="90px" height="30px">
                       <Bar type="" data={row.dataSet} options={decreaseOption} />
                     </Box>
                   </TableCell>
