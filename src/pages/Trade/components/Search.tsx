@@ -51,7 +51,7 @@ const Search = () => {
       <FormControl>
         <Grid container>
           <Grid item>
-            <TextField></TextField>
+            <TextField variant="outlined" margin="dense" placeholder="종목명" fullWidth />
           </Grid>
         </Grid>
       </FormControl>
